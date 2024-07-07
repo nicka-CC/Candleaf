@@ -4,6 +4,8 @@ import styles from "@/src/(pages)/home/index.module.css";
 import { Checkbox } from "@/src/shared/ui/index";
 import Search from "@/src/widgets/search";
 import { useEffect, useState } from "react";
+import UiButton from "@/src/shared/ui/Button/ui-button";
+
 /**
  * @page Home
  */
@@ -25,6 +27,7 @@ const HomePage = () => {
         placeholder="Primary Input"
       />
       <Checkbox checked={isChecked} onChange={handleCheckboxChange} />
+      <UiButton theme={'third'}>ffff</UiButton>
     </div>
   );
 };

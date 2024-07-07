@@ -1,0 +1,66 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id       Int        @id @default(autoincrement()) @map("_id")
+  number   String     @unique
+  name     String?    @default("")
+  password String
+  cart     UserCart[]
+}
+
+model Candle {
+  id          Int            @id @default(autoincrement()) @map("_id")
+  image       String?
+  name        String?        @default("")
+  price       Int
+  wax         String?        @default("")
+  fragrance   String?        @default("")
+  burningTime String?        @default("")
+  dimension   String?        @default("")
+  weight      String?        @default("")
+  userCarts   CandleOnCart[]
+}
+
+model Testimonials {
+  id      Int                  @id @default(autoincrement()) @map("_id")
+  persons PersonTestimonials[]
+}
+
+model PersonTestimonials {
+  id             Int          @id @default(autoincrement())
+  name           String
+  image          String?
+  description    String?
+  rotate         Int
+  testimonialsId Int
+  testimonials   Testimonials @relation(fields: [testimonialsId], references: [id])
+
+  @@index([testimonialsId])
+}
+
+model UserCart {
+  id      Int            @id @default(autoincrement())
+  userId  Int
+  user    User           @relation(fields: [userId], references: [id])
+  candles CandleOnCart[]
+
+  @@index([userId])
+}
+
+model CandleOnCart {
+  id         Int      @id @default(autoincrement())
+  userCartId Int
+  candleId   Int
+  userCart   UserCart @relation(fields: [userCartId], references: [id])
+  candle     Candle   @relation(fields: [candleId], references: [id])
+
+  @@index([userCartId])
+  @@index([candleId])
+}
