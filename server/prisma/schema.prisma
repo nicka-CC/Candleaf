@@ -46,10 +46,11 @@ model PersonTestimonials {
 }
 
 model UserCart {
-  id      Int            @id @default(autoincrement())
-  userId  Int
-  user    User           @relation(fields: [userId], references: [id])
-  candles CandleOnCart[]
+  id        Int            @id @default(autoincrement())
+  userId    Int
+  candles   CandleOnCart[]
+  statusPay Boolean        @default(false)
+  user      User           @relation(fields: [userId], references: [id])
 
   @@index([userId])
 }
