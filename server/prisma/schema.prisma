@@ -12,6 +12,7 @@ model User {
   number   String     @unique
   name     String?    @default("")
   password String
+  moderate Boolean?   @default(false)
   cart     UserCart[]
 }
 
