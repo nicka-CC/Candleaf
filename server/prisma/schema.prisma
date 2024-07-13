@@ -39,7 +39,7 @@ model PersonTestimonials {
   name           String
   image          String?
   description    String?
-  rotate         Int
+  reiting        Float
   testimonialsId Int
   testimonials   Testimonials @relation(fields: [testimonialsId], references: [id])
 
