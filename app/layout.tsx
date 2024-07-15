@@ -7,6 +7,5 @@ export default RootLayout;
 //TODO:  features (add in cart, delete from cart, payed)
 //TODO:auth and login
 //TODO: entites: (candles, person, testimnials)
-//TODO:shared: (button(green, text, mini-text, big-green, gray, text-align), checkbox, input)
 
 

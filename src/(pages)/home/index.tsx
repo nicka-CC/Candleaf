@@ -5,6 +5,7 @@ import { Checkbox } from "@/src/shared/ui/index";
 import Search from "@/src/widgets/search";
 import { useEffect, useState } from "react";
 import UiButton from "@/src/shared/ui/Button/ui-button";
+import {Selector} from "@/src/shared/ui/index"
 
 /**
  * @page Home
@@ -22,12 +23,13 @@ const HomePage = () => {
       <Input
         className={styles.input}
         type="text"
-        theme="secondary"
-        icon="right"
         placeholder="Primary Input"
       />
       <Checkbox checked={isChecked} onChange={handleCheckboxChange} />
-      <UiButton theme={'third'}>ffff</UiButton>
+      <UiButton theme={'text-underline'}>ffff</UiButton>
+      <Selector>
+        <option>ffff</option>
+      </Selector>
     </div>
   );
 };

@@ -10,7 +10,8 @@ import {
   TableCaption,
 } from "@/src/shared/ui/Table/ui-table";
 import Checkbox from "@/src/shared/ui/Checkbox/ui-checkbox";
+import Selector from "@/src/shared/ui/Selector/ui-selector"
 export { UiButton as Button };
 export { Checkbox };
-// export type { Button };
+export {Selector}
 export { Table, TableHeader, TableBody, TableFooter, TableHead, TableRow, TableCell, TableCaption };

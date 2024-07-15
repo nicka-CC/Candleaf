@@ -1,0 +1,19 @@
+.select {
+    font-size: 14px;
+    border: 1px solid #E7E7E7;
+    padding: 2px 16px;
+    appearance: none;
+}
+
+.container {
+    position: relative;
+    display: inline-block;
+}
+.icon {
+    width: 14px;
+    position: absolute;
+    right: 1.5px;
+    top: 13px;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
