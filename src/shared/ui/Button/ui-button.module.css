@@ -9,6 +9,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
 }
 
 .green {
@@ -35,7 +36,34 @@
 .text:hover {
   --color: white;
 }
-
+.text-hp{
+  --padding: 0px 26px;
+  --button-font-size: 16px;
+  --button-border-radius: 4px;
+  --color: rgba(0, 0, 0, 0.78);
+  --button-border-width: none;
+}
+.text-hp:hover{
+  --color: rgba(0, 0, 0, 0.57);
+}
+.text-hpm{
+  --padding: 0px 2px;
+  --button-font-size: 36px;
+  --color: rgba(0, 0, 0, 0.78);
+  --button-border-width: none;
+}
+.text-hpm:hover{
+  --color: rgba(0, 0, 0, 0.57);
+}
+.text-h{
+  --button-font-size: 16px;
+  --button-border-radius: 4px;
+  --color: rgba(0, 0, 0, 0.78);
+  --button-border-width: none;
+}
+.text-h:hover{
+  --color: rgba(0, 0, 0, 0.57);
+}
 .gray {
   --bg-button-color: #A8A8A8;
   --button-font-size: 17px;
