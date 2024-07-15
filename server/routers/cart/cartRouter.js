@@ -1,16 +1,16 @@
 import express from 'express';
-import { PrismaClient } from "@prisma/client";
-import { authCheckMiddleware } from "../middleware/authMiddleware.js";
+import {PrismaClient} from "@prisma/client";
+import {authCheckMiddleware} from "../middleware/authMiddleware.js";
 
 const prisma = new PrismaClient();
 const router = express.Router();
 
 router.post("/add/:candleId", authCheckMiddleware, async (req, res) => {
-  const { candleId } = req.params;
+  const {candleId} = req.params;
   const userId = req.user.id;
   try {
     let userCart = await prisma.userCart.findFirst({
-      where: { userId: userId, statusPay: false },
+      where: {userId: userId, statusPay: false},
     });
     if (!userCart) {
       userCart = await prisma.userCart.create({
@@ -21,10 +21,10 @@ router.post("/add/:candleId", authCheckMiddleware, async (req, res) => {
       });
     }
     const candle = await prisma.candle.findUnique({
-      where: { id: Number(candleId) },
+      where: {id: Number(candleId)},
     });
     if (!candle) {
-      return res.status(404).json({ error: "Candle not found" });
+      return res.status(404).json({error: "Candle not found"});
     }
     const candleOnCart = await prisma.candleOnCart.create({
       data: {
@@ -35,14 +35,14 @@ router.post("/add/:candleId", authCheckMiddleware, async (req, res) => {
     res.status(201).json(candleOnCart);
   } catch (error) {
     console.error("Error adding candle to cart:", error);
-    res.status(500).json({ error: "Internal server error." });
+    res.status(500).json({error: "Internal server error."});
   }
 });
 router.get("/get", authCheckMiddleware, async (req, res) => {
   const userId = req.user.id;
   try {
     const userCart = await prisma.userCart.findFirst({
-      where: { userId: userId, statusPay: false },
+      where: {userId: userId, statusPay: false},
       include: {
         candles: {
           include: {
@@ -52,25 +52,25 @@ router.get("/get", authCheckMiddleware, async (req, res) => {
       },
     });
     if (!userCart) {
-      return res.status(404).json({ error: "Cart not found." });
+      return res.status(404).json({error: "Cart not found."});
     }
     res.json(userCart);
   } catch (error) {
     console.error("Error fetching cart:", error);
-    res.status(500).json({ error: "Internal server error." });
+    res.status(500).json({error: "Internal server error."});
   }
 });
 router.delete("/delete/:Id", authCheckMiddleware, async (req, res) => {
-  const { Id } = req.params;
+  const {Id} = req.params;
   const userId = req.user.id;
 
   try {
     const userCart = await prisma.userCart.findFirst({
-      where: { userId: userId, statusPay: false },
+      where: {userId: userId, statusPay: false},
     });
 
     if (!userCart) {
-      return res.status(404).json({ error: "Active cart not found for user" });
+      return res.status(404).json({error: "Active cart not found for user"});
     }
 
     const candleOnCart = await prisma.candleOnCart.findFirst({
@@ -81,17 +81,17 @@ router.delete("/delete/:Id", authCheckMiddleware, async (req, res) => {
     });
 
     if (!candleOnCart) {
-      return res.status(404).json({ error: "Candle not found in cart" });
+      return res.status(404).json({error: "Candle not found in cart"});
     }
 
     const deletedCandleOnCart = await prisma.candleOnCart.delete({
-      where: { id: candleOnCart.id },
+      where: {id: candleOnCart.id},
     });
 
     res.json(deletedCandleOnCart);
   } catch (error) {
     console.error("Error deleting candle from cart:", error);
-    res.status(500).json({ error: "Internal Server Error" });
+    res.status(500).json({error: "Internal Server Error"});
   }
 });
 router.patch("/update/payed", authCheckMiddleware, async (req, res) => {
@@ -99,24 +99,21 @@ router.patch("/update/payed", authCheckMiddleware, async (req, res) => {
 
   try {
     const userCart = await prisma.userCart.findFirst({
-      where: { userId: userId, statusPay: false },
+      where: {userId: userId},
     });
 
     if (!userCart) {
-      return res.status(404).json({ error: "Active cart not found for user" });
+      return res.status(404).json({error: "Active cart not found for user"});
     }
 
     const updatedCart = await prisma.userCart.update({
-      where: { id: userCart.id },
-      data: { statusPay: true },
+      where: {id: userCart.id},
+      data: {statusPay: !userCart.statusPay},
     });
-
     res.json(updatedCart);
   } catch (error) {
     console.error("Error updating cart status:", error);
-    res.status(500).json({ error: "Internal Server Error" });
+    res.status(500).json({error: "Internal Server Error"});
   }
 });
-
-
 export default router;

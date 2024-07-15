@@ -4,6 +4,7 @@ import cors from "cors";
 import candleRouter from "./routers/candle/candleRouter.js";
 import userRouter from "./routers/user/userRouter.js";
 import cartRouter from "./routers/cart/cartRouter.js";
+import testimonialsRouter from "./routers/testimonials/testimonialsRouter.js";
 const app = express();
 
 const PORT = 3555;
@@ -12,10 +13,9 @@ app.use(express.json());
 app.use("/auth/", authRouter);
 app.use("/candle", candleRouter);
 app.use("/user", userRouter);
-app.use("/cart", cartRouter)
+app.use("/cart", cartRouter);
+app.use("/testimonials", testimonialsRouter)
 
 app.listen(PORT, () => {
   console.log(`server started, port ${PORT}`);
 });
-//TODO PersonTestimonials requestions
-//TODO make cart requestions

@@ -29,21 +29,12 @@ model Candle {
   userCarts   CandleOnCart[]
 }
 
-model Testimonials {
-  id      Int                  @id @default(autoincrement()) @map("_id")
-  persons PersonTestimonials[]
-}
-
 model PersonTestimonials {
-  id             Int          @id @default(autoincrement())
-  name           String
-  image          String?
-  description    String?
-  reiting        Float
-  testimonialsId Int
-  testimonials   Testimonials @relation(fields: [testimonialsId], references: [id])
-
-  @@index([testimonialsId])
+  id          Int     @id @default(autoincrement())
+  name        String
+  image       String?
+  description String?
+  raiting     Float
 }
 
 model UserCart {
