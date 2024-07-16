@@ -36,6 +36,16 @@
 .text:hover {
   --color: white;
 }
+.text-r {
+  --button-font-size: 16px;
+  --button-border-radius: 4px;
+  --color: white;
+  --button-border-width: none;
+}
+
+.text-r:hover {
+  --color:#56B280;
+}
 .text-hp{
   --padding: 0px 26px;
   --button-font-size: 16px;

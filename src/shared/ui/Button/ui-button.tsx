@@ -14,6 +14,7 @@ type VariantsType =
   | "text-h"
   | "text-hp"
   | "text-hpm"
+  | "text-r"
   | "";
 const Button = (props: Button) => {
   const { className, children, theme = "text", type = "default", ...otherProps } = props;

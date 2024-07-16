@@ -10,6 +10,7 @@ const app = express();
 const PORT = 3555;
 app.use(cors());
 app.use(express.json());
+app.use("/uploads", express.static('uploads'))
 app.use("/auth/", authRouter);
 app.use("/candle", candleRouter);
 app.use("/user", userRouter);
