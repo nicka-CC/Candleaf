@@ -3,7 +3,6 @@ import styles from "@/src/shared/ui/Input/ui-input.module.css";
 
 
 export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
-
   error?: boolean;
 }
 
