@@ -59,7 +59,7 @@ export const SignUp = () => {
       }
         <div className={styles.box}>
           <div className={styles.texth}>Registration</div>
-          <div className={styles.textb}>If you registration <Link href="/auth/login">click me</Link></div>
+          <div className={styles.textb}>If you have account <Link href="/auth/login">click me</Link></div>
           <div>
             Number
             <Input

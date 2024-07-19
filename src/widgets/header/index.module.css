@@ -16,6 +16,13 @@
   justify-content: center;
   align-items: center;
 }
+.profile{
+  position: absolute;
+  padding: 20px;
+  border-radius: 20px;
+  background: #b8b8d8;
+  top: 10%;
+}
 .end{
   display: flex;
   background-color: white;

@@ -1,5 +1,5 @@
 'use client'
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Link from "next/link";
 import {Button} from "@/src/shared/ui";
 import styles from "@/src/widgets/header/index.module.css";
@@ -9,8 +9,30 @@ import classNames from "@/src/shared/lib/classnames/classnames";
 import Image from "next/image";
 import {AlignJustify, ChevronDown, PersonStanding, ShoppingCart, UserRound} from "lucide-react";
 
+const getLocalStorageItems = (key: any) => {
+  if (typeof window !== 'undefined') {
+    return localStorage.getItem(key);
+  }
+  return null;
+};
 const username = "Global_layout";
 const Header = ({className}: { className?: string }) => {
+  const [user, setUser] = useState<any>(null)
+  const [token, setToken] = useState<string | null>(null)
+  const [person, setPerson] = useState<boolean>(false)
+  useEffect(()=>{
+    const userData = getLocalStorageItems("user")
+    const userToken = getLocalStorageItems("token")
+    if(userData){
+      setUser(JSON.parse(userData))
+    }
+    if(userToken){
+      setToken(userToken)
+    }
+  },[])
+  if (person && !token){
+    window.location.href = "/signin";
+  }
   const [open , setOpen] = React.useState(false);
   return (
     <div className={classNames(styles.header, {}, [className || ""])}>
@@ -38,17 +60,25 @@ const Header = ({className}: { className?: string }) => {
         </Link>
       </div>
       <div className={styles.end}>
-        <Link href="/person">
-          <Button theme={"text-h"} className={styles.button}>
+          <Button theme={"text-h"} onClick={()=> setPerson(!person)} className={styles.button}>
             <UserRound/>
           </Button>
-        </Link>
         <Link href="/cart">
           <Button theme={"text-h"} className={styles.button}>
             <ShoppingCart/>
           </Button>
         </Link>
       </div>
+      {person && token &&
+        <div className={styles.profile}>
+          <div>Youre name: {user.name}</div>
+          <div>Youre number: {user.number}</div>
+          <Button theme={"gray"} onClick={()=> {
+            {localStorage.clear();
+              window.location.href = "/signin";
+            }}}>Log out</Button>
+         </div>
+      }
       {open &&
         <div className={styles.middle_open}>
           <Button className={styles.button} theme={"text-hpm"}>
