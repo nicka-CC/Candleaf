@@ -15,7 +15,7 @@ export const authCheckMiddleware = (req, res, next) => {
     return res.status(401).json({ ok: false, message: "Unauthorized: Token format is invalid" });
   }
 
-  jwt.verify(token, "MY_SECRET_KEY", (err, user) => {
+  jwt.verify(token, "GHHSV_SDAFFS_DDFFS", (err, user) => {
     if (err) {
       console.error("JWT Verification Error:", err);
       return res.status(403).json({ ok: false, message: "Forbidden: Invalid token" });

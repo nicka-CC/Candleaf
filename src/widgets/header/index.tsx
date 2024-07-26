@@ -23,6 +23,7 @@ const Header = ({className}: { className?: string }) => {
   useEffect(()=>{
     const userData = getLocalStorageItems("user")
     const userToken = getLocalStorageItems("token")
+
     if(userData){
       setUser(JSON.parse(userData))
     }

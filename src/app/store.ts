@@ -1,6 +1,8 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import reducers from "@/src/features/reducer";
 import {authService} from "@/src/features/Auth/api/AuthService";
+import {candleService} from "@/src/features/Candles/Api/CandleService";
+import {testimonialsService} from "@/src/features/Testimonials/Api/TestimonialsService";
 
 
 
@@ -12,6 +14,8 @@ export const store = configureStore({
   reducer: rootReducer,
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(
-      authService.middleware
+      authService.middleware,
+      candleService.middleware,
+      testimonialsService.middleware,
     ),
 });
