@@ -10,6 +10,7 @@ import Image from "next/image";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import Candles from "@/src/widgets/candles";
 import Testimonials from "@/src/widgets/testimonials";
+import CandlesPopular from "@/src/widgets/candle";
 
 // @ts-ignore
 /**
@@ -22,6 +23,7 @@ const HomePage = () => {
     <div className={styles.container}>
       <Candles/>
       <Testimonials/>
+      <CandlesPopular/>
     </div>
   );
 };

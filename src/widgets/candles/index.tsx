@@ -28,12 +28,13 @@ const Candles = ({className}: { className?: string }) => {
         {error && <p>Error loading candles</p>}
         {candles && candles.map((candle: any) => (
           <div className={styles.candle} key={candle.id}>
+            <Link href={`/candle/${candle.id}`}>
             <Image src={`http://localhost:3555/uploads/${candle.image}`} alt={candle.name} width={281} height={210}/>
             <div className={styles.box}>
               <p className={styles.name}>{candle.name}</p>
               <p className={styles.price}>{candle.price}$</p>
             </div>
-
+          </Link>
           </div>
         ))}
       </div>

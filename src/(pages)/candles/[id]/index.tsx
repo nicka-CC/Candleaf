@@ -6,12 +6,13 @@ import { useParams } from "next/navigation";
 import { useGetCandleMutation } from "@/src/features/Candles/Api/CandleService";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import {candleType} from "@/src/app/types/global";
 
 const Candle = () => {
   const params = useParams();
   const { id } = params;
   const [getCandle, { isLoading }] = useGetCandleMutation();
-  const [candle, setCandle] = useState(null);
+  const [candle, setCandle] = useState<candleType>();
 
   useEffect(() => {
     const fetchCandle = async () => {
