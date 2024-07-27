@@ -10,37 +10,39 @@ import {useDispatch} from "react-redux";
 import {useGetCandlesQuery} from "@/src/features/Candles/Api/CandleService";
 import CandlesSkeletone from "@/src/widgets/candles/CandlesSkeletone";
 
-const username = "Global_layout";
 
-const Candles = ({className}: { className?: string }) => {
+
+// eslint-disable-next-line react/display-name
+const Candles = React.forwardRef<HTMLDivElement>(({className}: { className?: string }, ref) => {
   const {data: candles, error, isLoading} = useGetCandlesQuery({});
   const dispatch = useDispatch();
-  let a:number[] = [1,2,3,4,5,6,7,8]
+  let a: number[] = [1, 2, 3, 4, 5, 6, 7, 8]
 
   return (
-    <div className={classNames(styles.container, {}, [className || ""])}>
+    <div ref={ref} className={classNames(styles.container, {}, [className || ""])}>
       <div className={styles.header}>
         <div className={styles.header_top}>Products</div>
-        <div className={styles.header_bottom}>Order it for you or for your beloved ones </div>
+        <div className={styles.header_bottom}>Order it for you or for your beloved ones</div>
       </div>
       <div className={styles.candles}>
-        {isLoading && a.map((l:number,index:number)=> (<p key={index}><CandlesSkeletone/></p>))}
+        {isLoading && a.map((l: number, index: number) => (<p key={index}><CandlesSkeletone/></p>))}
         {error && <p>Error loading candles</p>}
         {candles && candles.map((candle: any) => (
           <div className={styles.candle} key={candle.id}>
             <Link href={`/candle/${candle.id}`}>
-            <Image src={`http://localhost:3555/uploads/${candle.image}`} alt={candle.name} width={281} height={210}/>
-            <div className={styles.box}>
-              <p className={styles.name}>{candle.name}</p>
-              <p className={styles.price}>{candle.price}$</p>
-            </div>
-          </Link>
+              <Image src={`http://localhost:3555/uploads/${candle.image}`} alt={candle.name} width={281} height={210}/>
+              <div className={styles.box}>
+                <p className={styles.name}>{candle.name}</p>
+                <p className={styles.price}>{candle.price}$</p>
+              </div>
+            </Link>
           </div>
         ))}
       </div>
 
     </div>
   );
-};
+})
+
 
 export default Candles;

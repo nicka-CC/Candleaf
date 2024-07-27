@@ -1,27 +1,31 @@
 'use client'
-import Input from "@/src/shared/ui/Input/ui-input";
 import styles from "@/src/(pages)/home/index.module.css";
-import { Checkbox } from "@/src/shared/ui/index";
-import { useEffect, useState } from "react";
-import UiButton from "@/src/shared/ui/Button/ui-button";
-import {Selector} from "@/src/shared/ui/index"
-import {map} from "zod";
-import Image from "next/image";
-import { StaticImport } from "next/dist/shared/lib/get-img-props";
+import {useRef} from "react";
 import Candles from "@/src/widgets/candles";
 import Testimonials from "@/src/widgets/testimonials";
 import CandlesPopular from "@/src/widgets/candle";
-
-// @ts-ignore
+import NatureCandle from "@/src/widgets/NatureCandle";
+import TwoCandles from "@/src/widgets/TwoCandles";
 /**
  * @page Home
  */
 
 const HomePage = () => {
-
+  const currentRef = useRef<HTMLDivElement>(null);
+  const scrollDown = ()=> {
+    console.log("scrollToContent called");
+    if (currentRef.current) {
+      console.log("Scrolling to target element");
+      currentRef.current.scrollIntoView({ behavior: "smooth" });
+    } else {
+      console.log("targetRef.current is null");
+    }
+  }
   return (
     <div className={styles.container}>
-      <Candles/>
+      <NatureCandle scroll={scrollDown}/>
+      <Candles ref={currentRef}/>
+      <TwoCandles/>
       <Testimonials/>
       <CandlesPopular/>
     </div>

@@ -1,0 +1,30 @@
+.container{
+    background: rgba(255, 255, 255, 0.9);
+    max-width: 739px;
+    border-radius: 2px;
+    padding: 33px 83px 18px 83px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.button{
+    margin: 45px auto;
+}
+.header{
+    font-size: 40px;
+    font-weight: 500;
+    padding: 5px 0;
+}
+@media (max-width: 600px) {
+    .container{
+        padding: 41px 20px 0 20px;
+        margin: 0 15px;
+    }
+    .buttons{
+        font-size: 18px;
+    }
+    .header{
+        padding: 15px 0;
+    }
+
+}
