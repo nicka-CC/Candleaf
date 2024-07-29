@@ -76,8 +76,8 @@ const CartPage = () => {
         <Button theme={'text-underline'}>Back to shopping</Button>
       </div>
       <table className={styles.cartTable}>
-        <thead className={styles.tr} style={{ borderBottom: "2px solid black" }}>
-        <tr style={{border: "10px solid black"}}>
+        <thead className={styles.tr}>
+        <tr>
             <th style={{textAlign: "left"}}>Product</th>
             <th></th>
             <th>Price</th>
@@ -95,7 +95,7 @@ const CartPage = () => {
                 style={{padding: "32px 0"}}
               />
             </td>
-            <td>{item.name} <Button theme={'text-underline'} onClick={() => deleteItem(item.id)}>
+            <td className={styles.names}>{item.name} Candleaf®<Button theme={'text-underline'} onClick={() => deleteItem(item.id)}>
               Delete
             </Button></td>
             <td style={{textAlign: "center"}}>{item.price}$</td>

@@ -15,8 +15,21 @@
     padding: 20px 0;
 }
 .tr{
-    border-bottom: 10px solid #bababa;
+    border-bottom: 1px solid #bababa;
     width: 100vw;
+}
+.cartTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.cartTable th,
+.cartTable td {
+    padding: 16px;
+}
+
+.cartTable tr:not(:last-child) {
+    border-bottom: 1px solid #bababa;
 }
 .bottom{
     text-align: right;
@@ -33,5 +46,11 @@
     }
     .undername{
         padding-bottom: 60px;
+    }
+}
+@media(min-width: 600px){
+    .names{
+        font-weight: 500;
+        font-size: 27px;
     }
 }

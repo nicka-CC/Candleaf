@@ -21,3 +21,4 @@ export const store = configureStore({
       cartService.middleware,
     ),
 });
+export type RootState = ReturnType<typeof store.getState>;
