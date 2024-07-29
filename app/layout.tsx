@@ -2,9 +2,8 @@
 import RootLayout from "@/src/app/ui/global-layout";
 
 export default RootLayout;
-//TODO: pages (cart, payed 1st and 2st, contact)
-//TODO: widgets (say wax, popular and cart, contact, shipping and dress, right window, shipping, payement)
-//TODO:  features (add in cart, delete from cart, payed)
-//TODO: entites: (candle, person)
+//TODO: pages (payed 1st and 2st, contact)
+//TODO: widgets (shipping and dress, right window, shipping, payement)
+//TODO:  features (payed)
 
 
