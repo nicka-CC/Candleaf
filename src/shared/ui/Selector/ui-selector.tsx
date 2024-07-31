@@ -5,7 +5,7 @@ import { ChevronDown } from "lucide-react";
 
 interface SelectorProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
   className?: string;
-  options: number[]; // Определяем, что options является массивом чисел
+  options: number[] | string[]; // Определяем, что options является массивом чисел
 }
 
 const Selector = ({ className, options, ...props }: SelectorProps) => {
@@ -14,7 +14,7 @@ const Selector = ({ className, options, ...props }: SelectorProps) => {
       <select className={styles.select} {...props}>
         {options.map((option, index) => (
           <option key={index} value={option}>
-            {option} weeks
+            {option}
           </option>
         ))}
       </select>

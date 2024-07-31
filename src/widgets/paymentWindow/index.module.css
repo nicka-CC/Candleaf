@@ -1,0 +1,81 @@
+
+.container {
+    width: 100%;
+    padding: 55px 55px;
+    display: flex;
+    flex-direction: column;
+}
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+}
+.name{
+    font-weight: 500;
+    font-size: 20px;
+    margin: 23px 0;
+}
+.text_green {
+    color: #4d9c6f;
+}
+
+.text_bold {
+    font-weight: 500;
+}
+
+.payment {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 44px;
+    border: 1px solid #9e9d9d;
+    border-radius: 7px;
+
+}
+.header{
+    padding:10px 21px;
+    display: flex;
+    align-items: center;
+    color: #4d9c6f;
+    background: linear-gradient(to top right, white, #b9d5c4, #4d9c6f);
+}
+
+.contact {
+
+}
+
+.checkbox {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.address {
+    margin: 40px 0 60px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.flex {
+    display: flex;
+    gap: 13px;
+    align-items: center;
+}
+
+.card {
+    display: flex;
+    gap: 12px;
+    flex-direction: column;
+    padding: 24px 18px;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 15px;
+    }
+
+    .flex {
+        flex-direction: column;
+    }
+}

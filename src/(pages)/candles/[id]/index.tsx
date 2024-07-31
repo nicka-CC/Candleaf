@@ -23,7 +23,7 @@ const Candle = () => {
   const [updateUserCart] = useUpdateUserCartMutation();
   const [candle, setCandle] = useState<candleType>();
 
-  let values = [1, 2, 3, 4]
+  let values: string[] = ['1 week', '2 week', '3 week', '4 week']
   useEffect(() => {
     if (id) {
       const fetchCandle = async () => {

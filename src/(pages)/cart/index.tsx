@@ -73,7 +73,11 @@ const CartPage = () => {
     <div className={styles.container}>
       <div className={styles.name}>Your cart items</div>
       <div className={styles.undername}>
-        <Button theme={'text-underline'}>Back to shopping</Button>
+        <Button theme={'text-underline'} onClick={() => {
+          {
+            window.location.href = "/";
+          }
+        }}>Back to shopping</Button>
       </div>
       <table className={styles.cartTable}>
         <thead className={styles.tr}>
@@ -108,7 +112,11 @@ const CartPage = () => {
             <div style={{fontWeight: "200"}}>Tax and shipping cost will be calculated later</div>
           </td>
           <td colSpan={1} style={{display: "flex", justifyContent: "center"}}>
-            <Button theme={'green'}>Check-out</Button>
+            <Button theme={'green'} onClick={() => {
+              {
+                window.location.href = "/cart/pay";
+              }
+            }}>Check-out</Button>
           </td>
         </tr>
         </tbody>

@@ -1,0 +1,20 @@
+.container{
+ padding: 10% 5%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.button{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 28%;
+}
+.name{
+    font-size: 26px;
+    font-weight: 500;
+}
+.about{
+    font-weight: 300;
+}
